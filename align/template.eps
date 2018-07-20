@@ -5,6 +5,7 @@
 /space 5 def
 /align 0.1 def
 /Courier-Roman findfont sz scalefont setfont
+
 % and this data
 /French [(foo) (bar) (bazzify) ()] def
 /English [(qux) (77.77) (whatever) (this) (other) (thing) ()] def
@@ -20,26 +21,27 @@
   exch sz mul 0 newpath 0 0 moveto rlineto space 0 rmoveto show stroke
 } def
 
-/gridpoint {
-  sz mul exch
-  French length 2 sub exch sub sz mul % exch
-} def
+/gridpoint { sz mul exch French length 2 sub exch sub sz mul } def
 /point {
   newpath 0 0 moveto sz 0 rlineto 0 sz rlineto sz neg 0 rlineto closepath fill
 } def
 
 5 5 translate
+
 gsave
 0 0 moveto
-English length 1 sub French dup maxlen exch { 3 copy row pop 0 sz translate } forall
+English length 1 sub
+French dup maxlen exch { 3 copy row pop 0 sz translate } forall
 clear
 grestore
+
 gsave
 English length 1 sub sz mul space add French maxlen add 0 translate
 90 rotate
 French length 1 sub English { 2 copy col pop 0 sz translate } forall
 clear
 grestore
+
 Alignment {
   gsave
   French maxlen space add 0 translate
