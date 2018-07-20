@@ -1,0 +1,49 @@
+%!PS-Adobe EPSF-3
+%%BoundingBox: 0 0 200 200
+% set these parameters
+/sz 12 def
+/space 5 def
+/align 0.1 def
+/Courier-Roman findfont sz scalefont setfont
+% and this data
+/French [(foo) (bar) (bazzify) ()] def
+/English [(qux) (77.77) (whatever) (this) (other) (thing) ()] def
+/Alignment [[0 0] [1 1] [1 2] [2 4]] def
+
+/max { 2 copy lt { exch } if pop } def
+/maxlen { 0 exch { stringwidth pop max } forall } def
+
+/showright { dup stringwidth pop 3 -1 roll exch sub 0 moveto show } def
+
+/row { showright space 0 rmoveto sz mul 0 rlineto stroke } def
+/col {
+  exch sz mul 0 newpath 0 0 moveto rlineto space 0 rmoveto show stroke
+} def
+
+/gridpoint {
+  sz mul exch
+  French length 2 sub exch sub sz mul % exch
+} def
+/point {
+  newpath 0 0 moveto sz 0 rlineto 0 sz rlineto sz neg 0 rlineto closepath fill
+} def
+
+5 5 translate
+gsave
+0 0 moveto
+English length 1 sub French dup maxlen exch { 3 copy row pop 0 sz translate } forall
+clear
+grestore
+gsave
+English length 1 sub sz mul space add French maxlen add 0 translate
+90 rotate
+French length 1 sub English { 2 copy col pop 0 sz translate } forall
+clear
+grestore
+Alignment {
+  gsave
+  French maxlen space add 0 translate
+  aload pop gridpoint translate
+  align setgray point
+  grestore
+} forall
