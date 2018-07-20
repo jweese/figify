@@ -28,20 +28,6 @@
 
 5 5 translate
 
-gsave
-0 0 moveto
-English length 1 sub
-French dup maxlen exch { 3 copy row pop 0 sz translate } forall
-clear
-grestore
-
-gsave
-English length 1 sub sz mul space add French maxlen add 0 translate
-90 rotate
-French length 1 sub English { 2 copy col pop 0 sz translate } forall
-clear
-grestore
-
 Alignment {
   gsave
   French maxlen space add 0 translate
@@ -49,3 +35,14 @@ Alignment {
   align setgray point
   grestore
 } forall
+0 0 moveto
+gsave
+English length 1 sub
+French dup maxlen exch { 3 copy row pop 0 sz translate } forall
+clear
+grestore
+
+English length 1 sub sz mul space add French maxlen add 0 translate
+90 rotate
+French length 1 sub English { 2 copy col pop 0 sz translate } forall
+clear
