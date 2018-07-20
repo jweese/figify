@@ -1,15 +1,8 @@
-%!PS-Adobe EPSF-3
-%%BoundingBox: 0 0 200 200
 % set these parameters
 /sz 12 def
 /space 5 def
 /align 0.1 def
 /Courier-Roman findfont sz scalefont setfont
-
-% and this data
-/French [(foo) (bar) (bazzify) ()] def
-/English [(qux) (77.77) (whatever) (this) (other) (thing) ()] def
-/Alignment [[0 0] [1 1] [1 2] [2 4]] def
 
 /max { 2 copy lt { exch } if pop } def
 /maxlen { 0 exch { stringwidth pop max } forall } def
