@@ -32,10 +32,10 @@ Alignment {
 gsave
 English length 1 sub
 French dup maxlen exch { 3 copy row pop 0 sz translate } forall
-clear
+pop pop
 grestore
 
 English length 1 sub sz mul space add French maxlen add 0 translate
 90 rotate
 French length 1 sub English { 2 copy col pop 0 sz translate } forall
-clear
+pop
